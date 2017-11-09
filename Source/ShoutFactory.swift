@@ -159,8 +159,8 @@ open class ShoutView: UIView {
     let width = UIScreen.main.bounds.width
     controller.view.addSubview(self)
 
-    frame = CGRect(x: 0, y: shoutViews.last?.frame.maxY ?? 0, width: width, height: 0)
-    backgroundView.frame = CGRect(x: 0, y: 0, width: width, height: 0)
+    frame = CGRect(x: 0, y: (shoutViews.last?.frame.maxY ?? 0) + controller.topLayoutGuide.length, width: width, height: 0)
+    backgroundView.frame = CGRect(x: 0, y: controller.topLayoutGuide.length, width: width, height: 0)
 
     UIView.animate(withDuration: 0.35, animations: {
       self.frame.size.height = Dimensions.height
